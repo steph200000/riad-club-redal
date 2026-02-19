@@ -65,3 +65,4 @@ const Installations = ({ onMore }) => (
 
 export default Installations;
 
+

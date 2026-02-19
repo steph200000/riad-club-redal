@@ -1,14 +1,14 @@
 import Stat from "./Stat";
 
 const Hero = () => (
-  <section id="accueil" className="relative">
+  <section id="accueil" className="relative min-h-screen md:h-[640px]">
     <div className="absolute inset-0">
       {/* Mets ton image dans /public/hero.jpg */}
-      <div className="h-[640px] w-full bg-cover bg-center" style={{ backgroundImage: "url('/hero.jpg')" }} />
+      <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: "url('/hero.jpg')" }} />
       <div className="absolute inset-0 bg-gradient-to-r from-[#fbfaf7] via-[#fbfaf7]/45 to-transparent" />
     </div>
 
-    <div className="relative mx-auto max-w-6xl px-4 pt-16 pb-10">
+    <div className="relative mx-auto max-w-6xl px-4 pt-16 pb-20 md:pb-10">
       <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-white/90 px-4 py-2 text-xs font-medium tracking-wide text-emerald-800 shadow-sm shadow-emerald-50">
         🏆 Club sportif
       </div>
@@ -72,4 +72,5 @@ const Hero = () => (
 );
 
 export default Hero;
+
 
