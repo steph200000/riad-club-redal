@@ -26,8 +26,8 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
             isMobileClicked ? 'pb-4' : 'pb-1'
           } sm:pb-6`}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
-              {/* Bloc titre avec logo - en bas à gauche, décalé un peu à droite sur desktop */}
-              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 sm:pl-6 ${
+              {/* Bloc titre avec logo - en bas à gauche */}
+              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 ${
                 isMobileClicked ? 'sm:translate-y-0 -translate-y-3' : 'translate-y-0'
               }`}>
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
@@ -39,16 +39,18 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
                 } sm:truncate`}>{title}</h3>
               </div>
               
-              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop */}
+              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop, animation fluide sur mobile */}
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onMore();
                 }}
-                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 transition-all flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 ${
-                  isMobileClicked ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-                } transition-opacity duration-300 transition-transform duration-300`}
+                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 sm:transition-opacity sm:duration-300 ${
+                  isMobileClicked 
+                    ? 'opacity-100 translate-y-0 scale-100' 
+                    : 'opacity-0 translate-y-2 scale-95'
+                } transition-all duration-500 ease-out`}
               >
                 En savoir plus →
               </button>
