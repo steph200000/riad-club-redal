@@ -22,10 +22,12 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
           
           {/* Conteneur overlay structuré en bas */}
-          <div className="absolute inset-x-0 bottom-0 p-6">
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-4">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              {/* Bloc titre avec logo - en bas à gauche */}
-              <div className="flex items-center gap-3 min-w-0 flex-1">
+              {/* Bloc titre avec logo - en bas à gauche, décalé un peu à droite sur desktop */}
+              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 sm:pl-2 ${
+                isMobileClicked ? 'sm:translate-y-0 -translate-y-12' : 'translate-y-0'
+              }`}>
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
                   {icon}
                 </div>
@@ -35,14 +37,14 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
                 } sm:truncate`}>{title}</h3>
               </div>
               
-              {/* Bouton "En savoir plus" - visible sur desktop au hover, sur mobile après clic */}
+              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop */}
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onMore();
                 }}
-                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 transition-all flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 ${
+                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 transition-all flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 ${
                   isMobileClicked ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
                 } transition-opacity duration-300 transition-transform duration-300`}
               >
