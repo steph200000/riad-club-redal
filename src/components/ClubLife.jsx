@@ -1,3 +1,5 @@
+import { handleInstagramClick } from "../utils/instagramLink";
+
 const ClubLife = () => (
   <section className="bg-white py-20">
     <div className="mx-auto max-w-6xl px-4">
@@ -61,6 +63,7 @@ const ClubLife = () => (
             href="https://www.instagram.com/riadclubofficiel/"
             target="_blank"
             rel="noreferrer"
+            onClick={handleInstagramClick}
             className="mt-4 inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2 text-xs font-semibold text-white hover:bg-black"
           >
             Voir le fil Instagram officiel

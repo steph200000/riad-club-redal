@@ -1,3 +1,5 @@
+import { handleInstagramClick } from "../utils/instagramLink";
+
 const Footer = () => (
   <footer id="contact" className="border-t border-slate-200 bg-slate-50">
     <div className="mx-auto max-w-6xl px-4 py-16">
@@ -25,6 +27,7 @@ const Footer = () => (
               href="https://www.instagram.com/riadclubofficiel/"
               target="_blank"
               rel="noreferrer"
+              onClick={handleInstagramClick}
               className="h-10 w-10 rounded-xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 grid place-items-center text-white text-lg hover:scale-110 transition-transform"
             >
               📷
