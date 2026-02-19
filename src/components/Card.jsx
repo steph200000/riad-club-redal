@@ -6,27 +6,29 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => (
           className="h-full w-full bg-cover bg-center"
           style={{ backgroundImage: `url(${img})` }}
         />
-        {/* Overlay avec gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        {/* Overlay professionnel avec gradient sombre */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
         
-        {/* Conteneur unique en bas avec titre et bouton */}
-        <div className="absolute left-4 sm:left-8 right-4 sm:right-8 bottom-4 sm:bottom-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-          {/* Bloc titre avec logo - décalé un peu plus à droite sur desktop */}
-          <div className="flex items-center gap-3 min-w-0 flex-1">
-            <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
-              {icon}
+        {/* Conteneur overlay structuré en bas */}
+        <div className="absolute inset-x-0 bottom-0 p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            {/* Bloc titre avec logo */}
+            <div className="flex items-center gap-3 min-w-0 flex-1">
+              <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
+                {icon}
+              </div>
+              <h3 className="text-2xl font-bold text-white drop-shadow-lg truncate">{title}</h3>
             </div>
-            <h3 className="text-2xl font-bold text-white drop-shadow-lg truncate">{title}</h3>
+            
+            {/* Bouton "En savoir plus" qui apparaît au survol */}
+            <button
+              type="button"
+              onClick={onMore}
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 transition-transform hover:scale-105 flex-shrink-0 w-full sm:w-auto"
+            >
+              En savoir plus →
+            </button>
           </div>
-          
-          {/* Bouton "En savoir plus" qui apparaît au survol - décalé un peu plus à gauche sur desktop */}
-          <button
-            type="button"
-            onClick={onMore}
-            className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 transition-transform hover:scale-105 flex-shrink-0"
-          >
-            En savoir plus →
-          </button>
         </div>
       </div>
     ) : (
