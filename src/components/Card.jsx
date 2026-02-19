@@ -39,16 +39,16 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
                 } sm:truncate`}>{title}</h3>
               </div>
               
-              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop, animation fluide sur mobile */}
+              {/* Bouton "En savoir plus" - aligné à droite et remonté sur mobile, aligné avec le titre sur desktop */}
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onMore();
                 }}
-                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 sm:transition-opacity sm:duration-300 ${
+                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 sm:transition-opacity sm:duration-300 self-end sm:self-auto ${
                   isMobileClicked 
-                    ? 'opacity-100 translate-y-0 scale-100' 
+                    ? 'opacity-100 translate-y-0 -translate-y-1 scale-100' 
                     : 'opacity-0 translate-y-2 scale-95'
                 } transition-all duration-500 ease-out`}
               >
