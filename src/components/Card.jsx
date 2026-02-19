@@ -22,35 +22,25 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
           
           {/* Conteneur overlay structuré en bas */}
-          <div className={`absolute inset-x-0 bottom-0 px-6 transition-all duration-300 ${
-            isMobileClicked ? 'pb-4' : 'pb-1'
-          } sm:pb-6`}>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-1 sm:pb-6">
+            <div className="flex flex-row items-center justify-between gap-2 sm:gap-4">
               {/* Bloc titre avec logo - en bas à gauche */}
-              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 ${
-                isMobileClicked ? 'sm:translate-y-0 -translate-y-3' : 'translate-y-0'
-              }`}>
+              <div className="flex items-center gap-3 min-w-0 flex-1">
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
                   {icon}
                 </div>
-                {/* Titre complet par défaut sur mobile, tronqué seulement quand le bouton est visible */}
-                <h3 className={`text-2xl font-bold text-white drop-shadow-lg ${
-                  isMobileClicked ? 'truncate' : ''
-                } sm:truncate`}>{title}</h3>
+                {/* Titre tronqué sur mobile et desktop pour éviter la fusion avec le bouton */}
+                <h3 className="text-2xl font-bold text-white drop-shadow-lg truncate">{title}</h3>
               </div>
               
-              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop, animation fluide sur mobile */}
+              {/* Bouton "En savoir plus" - toujours visible sur mobile, visible au hover sur desktop */}
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onMore();
                 }}
-                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 sm:transition-opacity sm:duration-300 ${
-                  isMobileClicked 
-                    ? 'opacity-100 translate-y-0 scale-100' 
-                    : 'opacity-0 translate-y-2 scale-95'
-                } transition-all duration-500 ease-out`}
+                className="rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300"
               >
                 En savoir plus →
               </button>
