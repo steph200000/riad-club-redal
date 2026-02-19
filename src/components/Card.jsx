@@ -19,11 +19,11 @@ const Card = ({ id, title, desc, bullets, img, icon, onMore, isActive, onCardCli
           
           {/* Conteneur overlay structuré en bas */}
           <div className={`absolute inset-x-0 bottom-0 px-6 transition-all duration-300 ${
-            isActive ? 'pb-4' : 'pb-1'
+            isActive ? 'pb-5' : 'pb-1'
           } sm:pb-6`}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
               {/* Bloc titre avec logo - en bas à gauche */}
-              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 ${
+              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 sm:pr-2 ${
                 isActive ? 'sm:translate-y-0 -translate-y-3' : 'translate-y-0'
               }`}>
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
@@ -35,14 +35,14 @@ const Card = ({ id, title, desc, bullets, img, icon, onMore, isActive, onCardCli
                 } sm:truncate`}>{title}</h3>
               </div>
               
-              {/* Bouton "En savoir plus" - aligné à droite et remonté sur mobile, aligné avec le titre sur desktop */}
+              {/* Bouton "En savoir plus" - aligné avec le titre sur desktop, espace en bas sur mobile */}
               <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onMore();
                 }}
-                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:-translate-y-2 sm:transition-all sm:duration-300 self-end sm:self-auto ${
+                className={`rounded-full bg-emerald-700 px-4 py-2 text-xs font-semibold text-white shadow-xl hover:bg-emerald-800 flex-shrink-0 whitespace-nowrap sm:opacity-0 sm:group-hover:opacity-100 sm:translate-y-0 sm:transition-opacity sm:duration-300 self-end sm:self-auto ${
                   isActive 
                     ? 'opacity-100 translate-y-0 -translate-y-1 scale-100' 
                     : 'opacity-0 translate-y-2 scale-95'
