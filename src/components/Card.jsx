@@ -25,11 +25,14 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
           <div className="absolute inset-x-0 bottom-0 p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               {/* Bloc titre avec logo - en bas à gauche */}
-              <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 ${isMobileClicked ? 'sm:translate-y-0 -translate-y-12' : 'translate-y-0'}`}>
+              <div className="flex items-center gap-3 min-w-0 flex-1">
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
                   {icon}
                 </div>
-                <h3 className={`text-2xl font-bold text-white drop-shadow-lg sm:truncate ${isMobileClicked ? 'truncate' : ''}`}>{title}</h3>
+                {/* Titre complet par défaut sur mobile, tronqué seulement quand le bouton est visible */}
+                <h3 className={`text-2xl font-bold text-white drop-shadow-lg ${
+                  isMobileClicked ? 'truncate' : ''
+                } sm:truncate`}>{title}</h3>
               </div>
               
               {/* Bouton "En savoir plus" - visible sur desktop au hover, sur mobile après clic */}
