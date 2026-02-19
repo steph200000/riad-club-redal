@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Installations from "./components/Installations";
@@ -9,6 +9,8 @@ import ClubLife from "./components/ClubLife";
 import Footer from "./components/Footer";
 
 export default function App() {
+  const [activeCardId, setActiveCardId] = useState(null);
+
   const scrollToActivity = (activityId) => {
     // Forcer l'animation en déclenchant un événement personnalisé
     const event = new CustomEvent(`forceAnimation_${activityId}`, { detail: Date.now() });
@@ -34,13 +36,17 @@ export default function App() {
     setTimeout(scrollToElement, 100);
   };
 
+  const handleCardClick = (cardId) => {
+    setActiveCardId(activeCardId === cardId ? null : cardId);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f4f7fb] via-[#fbfaf7] to-[#f4f4ff] text-slate-900">
       <Header />
 
       <Hero />
 
-      <Installations onMore={scrollToActivity} />
+      <Installations onMore={scrollToActivity} activeCardId={activeCardId} onCardClick={handleCardClick} />
 
       <Tarifs />
 
