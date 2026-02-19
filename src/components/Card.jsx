@@ -22,11 +22,13 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
           
           {/* Conteneur overlay structuré en bas */}
-          <div className="absolute inset-x-0 bottom-0 px-6 pb-2 sm:pb-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className={`absolute inset-x-0 bottom-0 px-6 transition-all duration-300 ${
+            isMobileClicked ? 'pb-3' : 'pb-1'
+          } sm:pb-4`}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
               {/* Bloc titre avec logo - en bas à gauche, décalé un peu à droite sur desktop */}
               <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 sm:pl-2 ${
-                isMobileClicked ? 'sm:translate-y-0 -translate-y-6' : 'translate-y-0'
+                isMobileClicked ? 'sm:translate-y-0 -translate-y-3' : 'translate-y-0'
               }`}>
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
                   {icon}
