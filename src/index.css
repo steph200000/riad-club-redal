@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { 
+  background: #fbfaf7; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
