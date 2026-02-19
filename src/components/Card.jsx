@@ -29,7 +29,7 @@ const Card = ({ title, desc, bullets, img, icon, onMore }) => {
                 <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
                   {icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white drop-shadow-lg truncate">{title}</h3>
+                <h3 className={`text-2xl font-bold text-white drop-shadow-lg sm:truncate ${isMobileClicked ? 'truncate' : ''}`}>{title}</h3>
               </div>
               
               {/* Bouton "En savoir plus" - visible sur desktop au hover, sur mobile après clic */}
