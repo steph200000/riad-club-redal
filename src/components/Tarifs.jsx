@@ -10,14 +10,18 @@ const Tarifs = () => {
     if (buttonRef.current) {
       buttonRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
       
-      // Attendre que le scroll soit terminé avant d'animer le bouton
-      // Le scroll smooth prend généralement entre 500-1000ms selon la distance
+      // Détecter si on est sur desktop (largeur d'écran >= 768px)
+      const isDesktop = window.innerWidth >= 768;
+      
+      // Sur desktop: animer immédiatement, sur mobile: attendre la fin du scroll
+      const delay = isDesktop ? 0 : 800;
+      
       setTimeout(() => {
         setIsButtonHighlighted(true);
         setTimeout(() => {
           setIsButtonHighlighted(false);
-        }, 600);
-      }, 800);
+        }, 500);
+      }, delay);
     }
   };
 
@@ -81,8 +85,8 @@ const Tarifs = () => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSfFnsqyqym36GtmakQZwLWSV2V049fkZWfCCUOYrhy5xE_R9w/viewform?usp=publish-editor"
           target="_blank"
           rel="noreferrer"
-          className={`inline-flex items-center justify-center rounded-xl bg-emerald-700 px-8 py-3 text-base font-semibold text-white shadow-lg hover:bg-emerald-800 transition-all hover:scale-105 ${
-            isButtonHighlighted ? "scale-110" : ""
+          className={`inline-flex items-center justify-center rounded-xl bg-emerald-700 px-8 py-3 text-base font-semibold text-white shadow-lg hover:bg-emerald-800 transition-all duration-300 ease-in-out hover:scale-105 ${
+            isButtonHighlighted ? "scale-110 shadow-2xl" : "scale-100"
           }`}
         >
           Adhérer maintenant
