@@ -10,7 +10,7 @@ const Hero = () => (
 
     <div className="relative mx-auto max-w-6xl px-4 pt-16 pb-20 md:pb-10">
       <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-white/90 px-4 py-2 text-xs font-medium tracking-wide text-emerald-800 shadow-sm shadow-emerald-50">
-        🏆 Club - sportif
+        🏆 Club sportif
       </div>
 
       <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900">
