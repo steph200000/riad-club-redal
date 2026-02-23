@@ -1,6 +1,24 @@
+import { useState, useRef } from "react";
 import PriceCard from "./PriceCard";
 
-const Tarifs = () => (
+const Tarifs = () => {
+  const [isButtonHighlighted, setIsButtonHighlighted] = useState(false);
+  const buttonRef = useRef(null);
+
+  const handleCardClick = () => {
+    // Scroll vers le bouton
+    if (buttonRef.current) {
+      buttonRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    
+    // Animer le bouton
+    setIsButtonHighlighted(true);
+    setTimeout(() => {
+      setIsButtonHighlighted(false);
+    }, 600);
+  };
+
+  return (
   <section id="tarifs" className="bg-white/90 border-y border-slate-200/70">
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="text-center mb-12">
@@ -26,6 +44,7 @@ const Tarifs = () => (
             { label: "Couple", value: "900 DH/an" },
             { label: "Enfant (6-24 ans)", value: "300 DH/an" },
           ]}
+          onClick={handleCardClick}
         />
         <PriceCard
           title="Adhérents VEOLIA"
@@ -35,6 +54,7 @@ const Tarifs = () => (
             { label: "Couple", value: "1 200 DH/an" },
             { label: "Enfant (6-24 ans)", value: "300 DH/an" },
           ]}
+          onClick={handleCardClick}
         />
         <PriceCard
           title="Adhérents Externes"
@@ -44,6 +64,7 @@ const Tarifs = () => (
             { label: "Frais 1ère adhésion Couple", value: "3 000 DH" },
             { label: "Cotisation annuelle", value: "3 600 DH" },
           ]}
+          onClick={handleCardClick}
         />
       </div>
 
@@ -53,10 +74,13 @@ const Tarifs = () => (
           Choisissez votre formule et rejoignez le Riad Club.
         </p>
         <a
+          ref={buttonRef}
           href="https://docs.google.com/forms/d/e/1FAIpQLSfFnsqyqym36GtmakQZwLWSV2V049fkZWfCCUOYrhy5xE_R9w/viewform?usp=publish-editor"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-8 py-3 text-base font-semibold text-white shadow-lg hover:bg-emerald-800 transition-all hover:scale-105"
+          className={`inline-flex items-center justify-center rounded-xl bg-emerald-700 px-8 py-3 text-base font-semibold text-white shadow-lg hover:bg-emerald-800 transition-all hover:scale-105 ${
+            isButtonHighlighted ? "scale-110" : ""
+          }`}
         >
           Adhérer maintenant
         </a>
@@ -81,7 +105,8 @@ const Tarifs = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default Tarifs;
 

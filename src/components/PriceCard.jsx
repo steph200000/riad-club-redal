@@ -1,8 +1,9 @@
-const PriceCard = ({ badge, title, subtitle, rows, accent }) => (
+const PriceCard = ({ badge, title, subtitle, rows, accent, onClick }) => (
   <div
+    onClick={onClick}
     className={`rounded-2xl border ${
       accent ? "border-emerald-700" : "border-slate-200"
-    } bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl hover:scale-[1.02]`}
+    } bg-white p-6 shadow-sm transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl hover:scale-[1.02] cursor-pointer`}
   >
     {badge ? (
       <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 text-xs font-medium">
