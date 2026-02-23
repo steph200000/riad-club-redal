@@ -9,13 +9,16 @@ const Tarifs = () => {
     // Scroll vers le bouton
     if (buttonRef.current) {
       buttonRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      
+      // Attendre que le scroll soit terminé avant d'animer le bouton
+      // Le scroll smooth prend généralement entre 500-1000ms selon la distance
+      setTimeout(() => {
+        setIsButtonHighlighted(true);
+        setTimeout(() => {
+          setIsButtonHighlighted(false);
+        }, 600);
+      }, 800);
     }
-    
-    // Animer le bouton
-    setIsButtonHighlighted(true);
-    setTimeout(() => {
-      setIsButtonHighlighted(false);
-    }, 600);
   };
 
   return (
