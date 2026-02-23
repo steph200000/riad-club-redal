@@ -221,3 +221,4 @@ const ActivityPage = ({ id, title, icon, desc, bullets, images, heroImage, onScr
 export default ActivityPage;
 
 
+

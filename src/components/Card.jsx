@@ -26,7 +26,7 @@ const Card = ({ id, title, desc, bullets, img, icon, onMore, isActive, onCardCli
               <div className={`flex items-center gap-3 min-w-0 flex-1 transition-transform duration-300 sm:pr-2 ${
                 isActive ? 'sm:translate-y-0 -translate-y-3' : 'translate-y-0'
               }`}>
-                <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0">
+                <div className="h-12 w-12 rounded-xl bg-white/90 backdrop-blur grid place-items-center text-2xl shadow-lg flex-shrink-0 sm:ml-2">
                   {icon}
                 </div>
                 {/* Titre complet par défaut sur mobile, tronqué seulement quand le bouton est visible */}

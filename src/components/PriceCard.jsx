@@ -27,3 +27,4 @@ const PriceCard = ({ badge, title, subtitle, rows, accent }) => (
 export default PriceCard;
 
 
+
