@@ -37,7 +37,7 @@ const Tarifs = () => {
       </div>
 
       <h3 className="text-center text-2xl font-bold mb-10">
-        Tarifs d'Adhésion <span className="text-emerald-800">2026</span>
+        Tarifs d'Adhésion
       </h3>
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
